@@ -11,6 +11,7 @@
   "author": "Tim Smart <hello@timsmart.co>",
   "license": "MIT",
   "devDependencies": {
+    "lerna": "^4.0.0",
     "prettier": "^2.6.0",
     "typescript": "^4.6.2"
   }

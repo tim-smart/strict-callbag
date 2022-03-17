@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/tim-smart/strict-callbag/compare/strict-callbag@0.1.1...strict-callbag@0.2.0) (2022-03-17)
+
+
+### Features
+
+* relax Talkback type ([964227b](https://github.com/tim-smart/strict-callbag/commit/964227b5b87369a928d3bd2f54145cac56cb401a))
+
+
+
+
+
 ## [0.1.1](https://github.com/tim-smart/strict-callbag/compare/strict-callbag@0.1.0...strict-callbag@0.1.1) (2022-03-17)
 
 

@@ -1,0 +1,17 @@
+{
+  "name": "strict-callbag",
+  "version": "0.0.0",
+  "description": "Stricter types for the callbag standard",
+  "main": "index.js",
+  "files": [
+    "*.ts",
+    "*.js"
+  ],
+  "repository": "https://github.com/tim-smart/strict-callbag.git",
+  "author": "Tim Smart <hello@timsmart.co>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.6.0",
+    "typescript": "^4.6.2"
+  }
+}

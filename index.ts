@@ -11,23 +11,16 @@ export enum Signal {
   END = 2,
 }
 
-type TalkbackArgsWithError<E> =
-  | [signal: Signal.DATA, data?: never]
-  | [signal: Signal.END, error?: E]
-
-type TalkbackArgsNoError = [signal: Signal.DATA] | [signal: Signal.END]
-
-type TalkbackArgs<E> = [E] extends [never]
-  ? TalkbackArgsNoError
-  : TalkbackArgsWithError<E>
-
 /**
  * A `Talkback` is sent from a sink to a producer to:
  *
  * - Request more data
  * - Abort the stream, optionally with an error
  */
-export type Talkback<E = never> = (...op: TalkbackArgs<E>) => void
+export type Talkback<E = never> = (
+  signal: Signal.DATA | Signal.END,
+  error?: E | undefined,
+) => void
 
 type SinkArgs<A, EI, EO> =
   | [signal: Signal.START, talkback: Talkback<EO>]

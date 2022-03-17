@@ -10,6 +10,9 @@
   "repository": "https://github.com/tim-smart/strict-callbag.git",
   "author": "Tim Smart <hello@timsmart.co>",
   "license": "MIT",
+  "scripts": {
+    "prepublishOnly": "tsc"
+  },
   "devDependencies": {
     "lerna": "^4.0.0",
     "prettier": "^2.6.0",

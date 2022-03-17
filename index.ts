@@ -40,7 +40,7 @@ export type Sink<A, EI = unknown, EO = never> = (
 
 type SourceArgs<A, EO = unknown> = [
   signal: Signal.START,
-  sink: Sink<A, EO, any>,
+  sink: Sink<A, EO, unknown>,
 ]
 
 /**

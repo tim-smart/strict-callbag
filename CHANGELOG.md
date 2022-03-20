@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/tim-smart/strict-callbag/compare/strict-callbag@0.2.1...strict-callbag@0.3.0) (2022-03-20)
+
+
+### Features
+
+* add createPipe helper ([a5671c1](https://github.com/tim-smart/strict-callbag/commit/a5671c13601e8fce4b85aff3d959801554a6d56f))
+
+
+
+
+
 ## [0.2.1](https://github.com/tim-smart/strict-callbag/compare/strict-callbag@0.2.0...strict-callbag@0.2.1) (2022-03-17)
 
 

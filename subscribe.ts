@@ -1,4 +1,4 @@
-import { Signal, Source, Talkback } from "."
+import { Signal, Source, Talkback } from "./index"
 
 interface Callbacks<A, E> {
   onStart: () => void

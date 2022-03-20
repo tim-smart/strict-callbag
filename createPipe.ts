@@ -1,4 +1,4 @@
-import { Signal, Sink, Source, Talkback } from "."
+import { Signal, Sink, Source, Talkback } from "./index"
 import { subscribe, Subscription } from "./subscribe"
 
 interface Callbacks<A, EI, EO> {

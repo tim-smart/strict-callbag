@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/tim-smart/strict-callbag/compare/strict-callbag@0.6.0...strict-callbag@0.7.0) (2022-03-20)
+
+
+### Features
+
+* pass subscription instead of talkback in createPipe ([34dc828](https://github.com/tim-smart/strict-callbag/commit/34dc8289ec6e0d028a8b23d51073be39a6afab0d))
+
+
+
+
+
 # [0.6.0](https://github.com/tim-smart/strict-callbag/compare/strict-callbag@0.5.0...strict-callbag@0.6.0) (2022-03-20)
 
 

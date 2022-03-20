@@ -2,11 +2,11 @@ import { Signal, Sink, Source, Talkback } from "."
 import { subscribe, Subscription } from "./subscribe"
 
 interface Callbacks<A, EI, EO> {
-  onStart: (talkback: Talkback<any>) => void
-  onData: (talkback: Talkback<any>, data: A) => void
-  onEnd: (talkback: Talkback<any>, err?: EI) => void
+  onStart: (sub: Subscription) => void
+  onData: (sub: Subscription, data: A) => void
+  onEnd: (err?: EI) => void
 
-  onRequest: (talkback: Talkback<any>) => void
+  onRequest: (sub: Subscription) => void
   onAbort: (err?: EO) => void
 
   talkbackOverride?: (original: Talkback<any>) => Talkback<any>
@@ -29,23 +29,25 @@ export const createPipe = <A, EI, EO = never>(
     talkbackOverride,
   }: Callbacks<A, EI, EO>,
 ) => {
-  let talkback: Talkback<any>
   let sub: Subscription
 
   sink(Signal.START, (signal, err) => {
     if (signal === Signal.DATA) {
       if (!sub) {
         sub = subscribe(source, {
-          onStart(tb) {
-            talkback = tb
-            onStart(talkback)
+          onStart() {
+            onStart(sub)
           },
-          onData,
-          onEnd,
+          onData(data) {
+            onData(sub, data)
+          },
+          onEnd(err) {
+            onEnd(err)
+          },
           talkbackOverride,
         })
-      } else if (talkback) {
-        onRequest(talkback)
+      } else {
+        onRequest(sub)
       }
     } else if (Signal.END) {
       sub?.cancel()

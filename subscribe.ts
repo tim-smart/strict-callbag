@@ -1,9 +1,9 @@
 import { Signal, Source, Talkback } from "."
 
 interface Callbacks<A, E> {
-  onStart: (talkback: Talkback<any>) => void
-  onData: (talkback: Talkback<any>, data: A) => void
-  onEnd: (talkback: Talkback<any>, err?: E) => void
+  onStart: () => void
+  onData: (data: A) => void
+  onEnd: (err?: E) => void
 
   talkbackOverride?: (original: Talkback<any>) => Talkback<any>
 }
@@ -28,15 +28,15 @@ export const subscribe = <A, E>(
 
     if (signal === Signal.START) {
       talkback = talkbackOverride ? talkbackOverride(data) : data
-      onStart(talkback)
+      onStart()
 
       while (--pendingPulls > 0) {
         talkback(Signal.DATA)
       }
     } else if (signal === Signal.DATA) {
-      onData(talkback, data)
+      onData(data)
     } else if (signal === Signal.END) {
-      onEnd(talkback, data)
+      onEnd(data)
     }
   })
 
@@ -49,6 +49,7 @@ export const subscribe = <A, E>(
       onCancel?.()
     }
   }
+
   const pull = () => {
     if (talkback) {
       talkback(Signal.DATA)

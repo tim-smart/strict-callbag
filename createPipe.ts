@@ -46,6 +46,8 @@ export const createPipe = <A, EI, EO = never>(
           },
           talkbackOverride,
         })
+
+        sub.listen()
       } else {
         onRequest(sub)
       }

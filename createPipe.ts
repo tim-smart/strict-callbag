@@ -1,5 +1,5 @@
 import { Signal, Sink, Source, Talkback } from "."
-import { subscribe } from "./subscribe"
+import { subscribe, Subscription } from "./subscribe"
 
 interface Callbacks<A, EI, EO> {
   onStart: (talkback: Talkback<any>) => void
@@ -30,12 +30,12 @@ export const createPipe = <A, EI, EO = never>(
   }: Callbacks<A, EI, EO>,
 ) => {
   let talkback: Talkback<any>
-  let cancel: () => void
+  let sub: Subscription
 
   sink(Signal.START, (signal, err) => {
     if (signal === Signal.DATA) {
-      if (!cancel) {
-        cancel = subscribe(source, {
+      if (!sub) {
+        sub = subscribe(source, {
           onStart(tb) {
             talkback = tb
             onStart(talkback)
@@ -48,7 +48,7 @@ export const createPipe = <A, EI, EO = never>(
         onRequest(talkback)
       }
     } else if (Signal.END) {
-      cancel?.()
+      sub?.cancel()
       onAbort(err)
     }
   })

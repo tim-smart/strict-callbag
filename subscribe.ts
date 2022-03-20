@@ -13,12 +13,15 @@ export const subscribe = <A, E>(
   { onStart, onData, onEnd, talkbackOverride }: Callbacks<A, E>,
 ) => {
   let aborted = false
+  let pendingPulls = 0
   let talkback: Talkback<any>
+  let onCancel: (() => void) | undefined
 
   source(Signal.START, (signal, data) => {
     if (aborted) {
       if (signal === Signal.START) {
         data(Signal.END)
+        onCancel?.()
       }
       return
     }
@@ -26,6 +29,10 @@ export const subscribe = <A, E>(
     if (signal === Signal.START) {
       talkback = talkbackOverride ? talkbackOverride(data) : data
       onStart(talkback)
+
+      while (--pendingPulls > 0) {
+        talkback(Signal.DATA)
+      }
     } else if (signal === Signal.DATA) {
       onData(talkback, data)
     } else if (signal === Signal.END) {
@@ -33,8 +40,24 @@ export const subscribe = <A, E>(
     }
   })
 
-  return () => {
+  const cancel = (cb?: () => void) => {
     aborted = true
-    talkback?.(Signal.END)
+    onCancel = cb
+
+    if (talkback) {
+      talkback(Signal.END)
+      onCancel?.()
+    }
   }
+  const pull = () => {
+    if (talkback) {
+      talkback(Signal.DATA)
+    } else {
+      pendingPulls++
+    }
+  }
+
+  return { cancel, pull }
 }
+
+export type Subscription = ReturnType<typeof subscribe>

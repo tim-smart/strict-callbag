@@ -7,6 +7,8 @@ interface Callbacks<A, EI, EO> {
 
   onRequest: (talkback: Talkback<any>) => void
   onAbort: (err?: EO) => void
+
+  talkbackOverride?: (original: Talkback<any>) => Talkback<any>
 }
 
 /**
@@ -22,6 +24,8 @@ export const createPipe = <A, EI, EO = never>(
 
     onRequest,
     onAbort,
+
+    talkbackOverride,
   }: Callbacks<A, EI, EO>,
 ) => {
   let started = false
@@ -42,7 +46,7 @@ export const createPipe = <A, EI, EO = never>(
           }
 
           if (signal === Signal.START) {
-            talkback = data
+            talkback = talkbackOverride ? talkbackOverride(data) : data
             onStart(talkback)
           } else if (signal === Signal.DATA) {
             onData(talkback, data)

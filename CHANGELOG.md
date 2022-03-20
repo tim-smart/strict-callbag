@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/tim-smart/strict-callbag/compare/strict-callbag@0.4.0...strict-callbag@0.5.0) (2022-03-20)
+
+
+### Features
+
+* add subscribe helper ([0442021](https://github.com/tim-smart/strict-callbag/commit/0442021a1015a499b0da32425ee047e39160ee6a))
+
+
+
+
+
 # [0.4.0](https://github.com/tim-smart/strict-callbag/compare/strict-callbag@0.3.0...strict-callbag@0.4.0) (2022-03-20)
 
 

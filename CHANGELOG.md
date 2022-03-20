@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/tim-smart/strict-callbag/compare/strict-callbag@0.7.0...strict-callbag@0.8.0) (2022-03-20)
+
+
+### Bug Fixes
+
+* race  condition in subscribe ([a2c7242](https://github.com/tim-smart/strict-callbag/commit/a2c724210973561e164811ce2df3c298daa23b46))
+
+
+### BREAKING CHANGES
+
+* listen must be called to start a subscription
+
+
+
+
+
 # [0.7.0](https://github.com/tim-smart/strict-callbag/compare/strict-callbag@0.6.0...strict-callbag@0.7.0) (2022-03-20)
 
 

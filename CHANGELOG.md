@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/tim-smart/strict-callbag/compare/strict-callbag@0.3.0...strict-callbag@0.4.0) (2022-03-20)
+
+
+### Features
+
+* Add talkbackOverride to createPipe ([840c7e7](https://github.com/tim-smart/strict-callbag/commit/840c7e75b8693960a197677223b97445361792cb))
+
+
+
+
+
 # [0.3.0](https://github.com/tim-smart/strict-callbag/compare/strict-callbag@0.2.1...strict-callbag@0.3.0) (2022-03-20)
 
 

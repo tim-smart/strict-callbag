@@ -50,3 +50,5 @@ type SourceArgs<A, EO = unknown> = [
  * - It can send errors of the `EO` type
  */
 export type Source<A, EO = unknown> = (...op: SourceArgs<A, EO>) => void
+
+export { createPipe } from "./createPipe"

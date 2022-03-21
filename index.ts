@@ -38,15 +38,13 @@ export type Sink<A, EI = unknown, EO = never> = (
   ...op: SinkArgs<A, EI, EO>
 ) => void
 
-type SourceArgs<A, EO = unknown> = [
-  signal: Signal.START,
-  sink: Sink<A, EO, unknown>,
-]
-
 /**
  * A `Source` produces data
  *
  * - It can send data of the `A` type
- * - It can send errors of the `EO` type
+ * - It can send errors of the `E` type
  */
-export type Source<A, EO = unknown> = (...op: SourceArgs<A, EO>) => void
+export type Source<A, E = unknown> = (
+  signal: Signal.START,
+  sink: Sink<A, E, any>,
+) => void

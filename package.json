@@ -4,8 +4,8 @@
   "description": "Stricter types for the callbag standard",
   "main": "index.js",
   "files": [
-    "*.ts",
-    "*.js"
+    "**/*.ts",
+    "**/*.js"
   ],
   "exports": {
     ".": {

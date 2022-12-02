@@ -1,14 +1,14 @@
 {
   "name": "strict-callbag",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Stricter types for the callbag standard",
   "type": "module",
   "exports": {
     ".": "./index.js"
   },
   "files": [
-    "*.ts",
-    "*.js"
+    "**/*.ts",
+    "**/*.js"
   ],
   "repository": "https://github.com/tim-smart/strict-callbag.git",
   "author": "Tim Smart <hello@timsmart.co>",

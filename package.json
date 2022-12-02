@@ -1,6 +1,6 @@
 {
   "name": "strict-callbag",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Stricter types for the callbag standard",
   "type": "module",
   "exports": {

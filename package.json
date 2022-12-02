@@ -2,22 +2,19 @@
   "name": "strict-callbag",
   "version": "0.9.1",
   "description": "Stricter types for the callbag standard",
-  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
   "files": [
     "*.ts",
     "*.js"
   ],
-  "exports": {
-    ".": {
-      "import": "./esm/index.js",
-      "require": "./index.js"
-    }
-  },
   "repository": "https://github.com/tim-smart/strict-callbag.git",
   "author": "Tim Smart <hello@timsmart.co>",
   "license": "MIT",
   "scripts": {
-    "prepublishOnly": "tsc && tsc -p ./tsconfig.esm.json",
+    "prepublishOnly": "tsc",
     "clean": "git clean -fxd -e node_modules"
   },
   "devDependencies": {
